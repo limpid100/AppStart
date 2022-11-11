@@ -44,7 +44,8 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        immerseStatus()
+//        immerseStatus()
+        fullScreen()
 
         installSplashScreen().setKeepOnScreenCondition {
             !resourceReady

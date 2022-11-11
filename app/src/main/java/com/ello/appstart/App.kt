@@ -19,13 +19,14 @@ class App : Application() {
                 field = value
                 SPUtils.getInstance().put("privacy_agreed", value, true)
             }
+            get() = SPUtils.getInstance().getBoolean("privacy_agreed")
     }
 
 
     override fun onCreate() {
         super.onCreate()
-        privacyConfirmed = SPUtils.getInstance().getBoolean("privacy_agreed")
         if (privacyConfirmed) {
+            //隐私协议同意了，进行第三方SDK初始化
             initWithPrivacyAgreed()
         }
     }

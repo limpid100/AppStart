@@ -3,12 +3,11 @@ package com.ello.appstart
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Color
 import android.net.Uri
-import android.view.WindowInsets
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 
 /**
  * @author dxl
@@ -27,8 +26,12 @@ fun Activity.immerseStatus() {
  * 全屏，状态栏也没有
  */
 fun Activity.fullScreen() {
+    WindowCompat.setDecorFitsSystemWindows(window, false)
     WindowCompat.getInsetsController(window, window.decorView)
-        .hide(WindowInsetsCompat.Type.statusBars())
+        .apply {
+            hide(WindowInsetsCompat.Type.systemBars())
+            systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        }
 }
 
 /**
