@@ -4,10 +4,11 @@ plugins {
 }
 
 android {
+    namespace 'com.ello.startwithpicture'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.ello.appstart"
+        applicationId "com.ello.startwithpicture"
         minSdk 22
         targetSdk 33
         versionCode 1
@@ -22,11 +23,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
     buildFeatures {
         viewBinding = true
     }
-
 
 
     compileOptions {
